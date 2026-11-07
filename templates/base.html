@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page is defined and page.title %}{% set doc_title = page.title ~ " · " ~ config.title %}
+{%- elif section is defined and section.title and section.path != "/" %}{% set doc_title = section.title ~ " · " ~ config.title %}
+{%- else %}{% set doc_title = config.title ~ ": a game system for the Anbernic RG DS+" %}{% endif %}
+<title>{{ doc_title }}</title>
+{%- if page is defined and page.description %}{% set doc_description = page.description %}
+{%- elif section is defined and section.description %}{% set doc_description = section.description %}
+{%- else %}{% set doc_description = config.description %}{% endif %}
+<meta name="description" content="{{ doc_description }}">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="{{ current_url | default(value=config.base_url ~ '/') }}">
+<link rel="preload" href="{{ get_url(path='fonts/roboto-condensed-bold.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ get_url(path='css/site.css', cachebust=true) }}">
+{#- Code blocks are drawn dark in both themes, so they always take the dark theme's colours. #}
+<link rel="stylesheet" href="{{ get_url(path='giallo-dark.css') }}">
+<link rel="icon" href="{{ get_url(path='img/icon.svg') }}" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ get_url(path='@/_index.md') }}" aria-label="DSlot, home">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect x="5" y="2" width="22" height="13" rx="2.5" fill="currentColor"/><rect x="8" y="5" width="16" height="7" rx="1" fill="var(--gold)"/><rect x="5" y="17" width="22" height="13" rx="2.5" fill="currentColor"/><rect x="8" y="20" width="16" height="7" rx="1" fill="var(--gold)"/></svg>
+      <span>DS<b>lot</b></span>
+    </a>
+    <a class="pill header-pill" href="{{ get_url(path='@/download.md') }}#release-notes" title="This beta's release notes">Beta</a>
+    {%- set here = current_path | default(value="/") %}
+    <nav aria-label="Site">
+      <ul>
+        {%- for item in [
+          ["Manual", "@/manual/_index.md", "/manual/"],
+          ["Emulators", "@/apps.md", "/apps/"],
+          ["FAQ", "@/faq.md", "/faq/"],
+          ["Contributing", "@/contributing.md", "/contributing/"],
+          ["Licences", "@/licences.md", "/licences/"],
+        ] %}
+        <li{% if loop.index > 3 %} class="nav-minor"{% endif %}><a href="{{ get_url(path=item[1]) }}"{% if item[2] in here %} aria-current="page"{% endif %}>{{ item[0] }}</a></li>
+        {%- endfor %}
+        <li class="nav-minor"><a href="{{ config.extra.nibos_site }}/" title="nibOS, the Linux system DSlot runs on">nibOS</a></li>
+        <li><a class="nav-github" href="{{ config.extra.repo }}" title="DSlot on GitHub" aria-label="DSlot on GitHub"><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg></a></li>
+        <li><a class="nav-cta" href="{{ get_url(path='@/download.md') }}"{% if "/download/" in here %} aria-current="page"{% endif %}>Download</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-about">
+      <p class="brand footer-brand">DS<b>lot</b></p>
+      <p>A game system for the Anbernic RG DS+: a shelf on both screens and eighteen systems behind one menu. It runs on <a href="{{ config.extra.nibos_site }}/">nibOS</a>.</p>
+      <p class="small">Free software: DSlot and nibOS under the GPL, version 3 or later; nibkit and the emulators under MIT.</p>
+      <p class="small">This manual and site: text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, code MIT, screenshots GPL-3.0-or-later (<a href="{{ get_url(path='@/licences.md') }}#this-site">details</a>).</p>
+    </div>
+    <nav aria-label="Footer">
+      <p class="footer-head">Use it</p>
+      <ul>
+        <li><a href="{{ get_url(path='@/download.md') }}">Download</a></li>
+        <li><a href="{{ get_url(path='@/manual/install.md') }}">Installing</a></li>
+        <li><a href="{{ get_url(path='@/manual/_index.md') }}">The manual</a></li>
+        <li><a href="{{ get_url(path='@/manual/troubleshooting.md') }}">What to do if…</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Project">
+      <p class="footer-head">The project</p>
+      <ul>
+        <li><a href="{{ get_url(path='@/apps.md') }}">Emulators and apps</a></li>
+        <li><a href="{{ config.extra.nibos_site }}/">nibOS, underneath</a></li>
+        <li><a href="{{ get_url(path='@/contributing.md') }}">Contributing</a></li>
+        <li><a href="{{ get_url(path='@/licences.md') }}">Licences</a></li>
+        <li><a href="{{ get_url(path='@/privacy.md') }}">Privacy</a></li>
+        <li><a href="{{ get_url(path='@/disclaimer.md') }}">Disclaimer</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Source code">
+      <p class="footer-head">Source</p>
+      <ul>
+        {%- for repo in [["DSlot", "DSlot"], ["DSperate", "DSperate"], ["nibcase", "nibcase"], ["inkdot", "inkdot"], ["inktick", "inktick"], ["nibkit", "nibkit"], ["nibOS", "nibos"], ["This site", "dslot-site"]] %}
+        <li><a href="{{ config.extra.github }}/{{ repo[1] }}">{{ repo[0] }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap">
+    <p class="fineprint">DSlot and nibOS are not affiliated with Anbernic, Nintendo, Arch Linux or Arch Linux ARM. Names of consoles are their owners' trademarks.</p>
+  </div>
+</footer>
+</body>
+</html>

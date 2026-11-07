@@ -1,0 +1,62 @@
+# The DSlot website and manual (Zola 0.23: https://www.getzola.org). `make` builds it into public/.
+# The site's address, also in static/CNAME (README.md, "Publishing").
+base_url = "https://dslot.alanb.dev"
+title = "DSlot"
+description = "DSlot: a game system for the Anbernic RG DS+. A game shelf on both screens, eighteen systems, one menu, on a card of its own."
+default_language = "en"
+
+compile_sass = false
+build_search_index = false
+generate_feeds = false
+minify_html = false
+
+[markdown]
+smart_punctuation = true
+external_links_no_follow = false
+external_links_no_referrer = true
+bottom_footnotes = true
+github_alerts = true
+insert_anchor_links = "right"
+
+[markdown.highlighting]
+light_theme = "github-light"
+dark_theme = "github-dark"
+style = "class"
+
+[link_checker]
+# Internal links (@/...) and anchors are checked by every build; external ones by `make check`.
+skip_anchor_prefixes = ["https://github.com/"]
+internal_level = "error"
+external_level = "warn"
+
+[extra]
+# The GitHub account the footer's source links are under, DSlot's repository (the header's
+# GitHub mark), and the nibOS site, for the system DSlot runs on.
+github = "https://github.com/abradburne"
+repo = "https://github.com/abradburne/DSlot"
+nibos_site = "https://nibos.alanb.dev"
+
+# The release the download page offers: DSlot's card image, which is built and published with
+# each nibOS release (it is DSlot on nibOS), so it takes the nibOS release's version and lives on
+# its GitHub release. Everything about a release is here, so a new one is one edit: the
+# version, the date, the commit, the file with its size and SHA-256 (from the release's
+# SHA256SUMS), and the update key. `published = false` turns the download button off. The base
+# nibOS image is offered on the nibOS site.
+[extra.release]
+published = true
+version = "0.1.0-beta1"
+tag = "v0.1.0-beta1"
+date = "2026-10-29"
+commit = "c22f4cf"
+url = "https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1"
+download_base = "https://github.com/abradburne/nibos/releases/download/v0.1.0-beta1"
+key_id = "41B02B0D6ED49D26"
+public_key = "RWQmndRuDSuwQVWE+U7OduA6M/9ibhJbai63nHTWlvvpVrLZ2OuF3h6k"
+
+[[extra.release.images]]
+edition = "DSlot for the RG DS+"
+badge = "For playing"
+summary = "Boots to the DSlot game shelf on both screens, with every emulator. Write it to a card, add your games, play."
+file = "dslot-0.1.0-beta1-rg-ds-plus.img.xz"
+size = "264 MiB"
+sha256 = "4ecb810b96abd884e73991b63699ca0f29e13e268d6bfa62a4dd109dc685bca3"
