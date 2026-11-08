@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {%- if page is defined and page.title %}{% set doc_title = page.title ~ " · " ~ config.title %}
 {%- elif section is defined and section.title and section.path != "/" %}{% set doc_title = section.title ~ " · " ~ config.title %}
-{%- else %}{% set doc_title = config.title ~ ": a game system for the Anbernic RG DS+" %}{% endif %}
+{%- else %}{% set doc_title = config.title ~ ": a replacement OS and game launcher for the Anbernic RG DS+" %}{% endif %}
 <title>{{ doc_title }}</title>
 {%- if page is defined and page.description %}{% set doc_description = page.description %}
 {%- elif section is defined and section.description %}{% set doc_description = section.description %}
@@ -23,9 +23,8 @@
 <a class="skip" href="#main">Skip to the content</a>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="{{ get_url(path='@/_index.md') }}" aria-label="DSlot, home">
-      <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect x="5" y="2" width="22" height="13" rx="2.5" fill="currentColor"/><rect x="8" y="5" width="16" height="7" rx="1" fill="var(--gold)"/><rect x="5" y="17" width="22" height="13" rx="2.5" fill="currentColor"/><rect x="8" y="20" width="16" height="7" rx="1" fill="var(--gold)"/></svg>
-      <span>DS<b>lot</b></span>
+    <a class="brand" href="{{ get_url(path='@/_index.md') }}" title="DSlot, home">
+      <img class="brand-logo" src="{{ get_url(path='img/logo.svg') }}" width="105" height="34" alt="DSlot">
     </a>
     <a class="pill header-pill" href="{{ get_url(path='@/download.md') }}#release-notes" title="This beta's release notes">Beta</a>
     {%- set here = current_path | default(value="/") %}
@@ -53,7 +52,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-about">
-      <p class="brand footer-brand">DS<b>lot</b></p>
+      <p class="footer-brand"><img src="{{ get_url(path='img/logo.svg') }}" width="111" height="36" alt="DSlot"></p>
       <p>A game system for the Anbernic RG DS+: a shelf on both screens and twenty-three systems behind one menu. It runs on <a href="{{ config.extra.nibos_site }}/">nibOS</a>.</p>
       <p class="small">Free software: DSlot and nibOS under the GPL, version 3 or later; nibkit and the emulators under MIT.</p>
       <p class="small">This manual and site: text <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, code MIT, screenshots GPL-3.0-or-later (<a href="{{ get_url(path='@/licences.md') }}#this-site">details</a>).</p>

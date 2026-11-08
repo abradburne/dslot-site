@@ -2,104 +2,104 @@
 {% block content %}
 {%- set r = config.extra.release %}
 {%- set x = section.extra %}
+<div class="home">
 
-<section class="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="wrap hero-grid">
-    <div class="hero-text">
-      <p class="eyebrow">{{ x.eyebrow }}</p>
+<section class="intro">
+  <div class="wrap intro-grid">
+    <div class="intro-text">
       <h1>{{ x.headline }}</h1>
       <p class="lede">{{ x.lede }}</p>
       <p class="actions">
-        <a class="button primary big" href="{{ get_url(path='@/download.md') }}">{{ <icon name="download" /> }}Download {{ r.version }}</a>
-        <a class="button ghost big" href="{{ get_url(path='@/manual/install.md') }}">{{ <icon name="book" /> }}How to install</a>
+        {%- if r.published %}
+        <a class="button primary" href="{{ get_url(path='@/download.md') }}">Download {{ r.version }}</a>
+        {%- endif %}
+        <a class="button" href="{{ get_url(path='@/manual/install.md') }}">Installation guide</a>
       </p>
-      <p class="hero-note"><span class="pill">Beta</span> {% if r.published %}{{ r.version }}, released {{ r.date }}: <a href="{{ get_url(path='@/download.md') }}#release-notes">what's new</a>.{% else %}The first alpha is being prepared.{% endif %}</p>
+      <p class="meta">{% if r.published %}Beta, released {{ r.date | date(format="%-d %B %Y") }} · <a href="{{ get_url(path='@/download.md') }}#release-notes">Release notes</a>{% else %}Beta, not yet released{% endif %} · Free software</p>
     </div>
-    <div class="hero-device">
-      {{ <device src="shelf.png" alt="An RG DS+ running DSlot: a game's box with its play time on the top screen; three game carts over a card slot on the bottom, touch screen." eager={true} /> }}
+    <div class="intro-art">
+      <img class="render" src="{{ get_url(path='img/' ~ x.hero_render.src) }}" width="{{ x.hero_render.width }}" height="{{ x.hero_render.height }}" alt="{{ x.hero_render.alt }}" fetchpriority="high">
     </div>
   </div>
+</section>
+
+<section class="band">
   <div class="wrap">
-    <ul class="stats">
-      {%- for s in x.stats %}
-      <li><span class="stat-value">{{ s.value }}<small>{{ s.unit }}</small></span><span class="stat-label">{{ s.label }}</span></li>
+    <div class="pair">
+      {%- for f in [x.shelf, x.menu] %}
+      <article class="card">
+        <h2>{{ f.title }}</h2>
+        <p>{{ f.text }}</p>
+        <p><a href="{{ get_url(path=f.link) }}">{{ f.link_text }} →</a></p>
+      </article>
       {%- endfor %}
-    </ul>
-  </div>
-</section>
-
-<section class="systems" aria-label="Systems DSlot plays">
-  <div class="marquee">
-    {%- for pass in [1, 2] %}
-    <ul{% if pass == 2 %} aria-hidden="true"{% endif %}>
-      {%- for s in x.systems %}<li><span class="dot" style="--c: {{ s.colour }}"></span>{{ s.name }}</li>{% endfor %}
-    </ul>
-    {%- endfor %}
-  </div>
-</section>
-
-{%- for f in x.features %}
-<section class="feature{% if loop.index is even %} flip{% endif %}">
-  <div class="wrap feature-grid">
-    <div class="feature-text">
-      <p class="kicker">{{ f.kicker }}</p>
-      <h2>{{ f.title }}</h2>
-      <p>{{ f.text }}</p>
-      <p><a class="more" href="{{ get_url(path=f.link) }}">{{ f.link_text }} {{ <icon name="arrow" /> }}</a></p>
     </div>
-    <div class="feature-device">
-      {{ <device src={f.image} alt={f.alt} size="small" /> }}
+    <div class="shots-row">
+      {%- for s in x.shots %}
+      {{ <screens src={s.src} alt={s.alt} caption={s.caption} /> }}
+      {%- endfor %}
     </div>
   </div>
 </section>
-{%- endfor %}
 
-<section class="cards-band">
+<section class="band" aria-labelledby="systems">
   <div class="wrap">
-    <p class="kicker">The rest of the device</p>
-    <h2>Everything on the board works</h2>
-    <ul class="cards">
-      {%- for c in x.cards %}
-      <li>{{ <icon name={c.icon} /> }}<h3>{{ c.title }}</h3><p>{{ c.text }}</p></li>
-      {%- endfor %}
-    </ul>
-  </div>
-</section>
-
-<section class="stack-band">
-  <div class="wrap stack-grid">
-    <div>
-      <p class="kicker">Under the shelf</p>
-      <h2>Mainline, open, and yours</h2>
-      <p>DSlot's card carries <a href="{{ config.extra.nibos_site }}/">nibOS</a>, a Linux system made for the DS+: no frozen vendor kernel, but mainline Linux and U-Boot, open graphics drivers, and all of Arch Linux ARM. Every part is free software.</p>
-      <p><a class="more" href="{{ config.extra.nibos_site }}/">About nibOS {{ <icon name="arrow" /> }}</a> &nbsp; <a class="more" href="{{ get_url(path='@/apps.md') }}">The emulators {{ <icon name="arrow" /> }}</a> &nbsp; <a class="more" href="{{ get_url(path='@/licences.md') }}">The licences {{ <icon name="arrow" /> }}</a></p>
+    <div class="panel">
+      <h2 id="systems">Twenty-three systems</h2>
+      <p class="band-lede">DS and Game Boy Advance play in DSperate, the Game Boy in inkdot, written for the DS+; the rest through nibcase and libretro cores. No games are included: bring your own.</p>
+      <div class="systems">
+        {%- for g in x.systems %}
+        <div>
+          <h3>{{ g.maker }}</h3>
+          <ul>{% for n in g.names %}<li>{{ n }}</li>{% endfor %}</ul>
+        </div>
+        {%- endfor %}
+      </div>
+      <p class="panel-links"><a href="{{ get_url(path='@/manual/games.md') }}">Folders, file types and BIOS files →</a> <a href="{{ get_url(path='@/apps.md') }}">The emulators →</a></p>
     </div>
-    <ol class="stack" reversed>
-      {%- for l in x.stack %}
-      <li style="--i: {{ loop.index0 }}"><strong>{{ l.name }}</strong><span>{{ l.note }}</span></li>
-      {%- endfor %}
-    </ol>
   </div>
 </section>
 
-<section class="start-band">
+<section class="band" aria-labelledby="device">
   <div class="wrap">
-    <p class="kicker">Start here</p>
-    <h2>Three steps to the shelf</h2>
+    <h2 id="device">The rest of the device</h2>
+    <dl class="notes">
+      {%- for n in x.notes %}
+      <div class="card"><dt>{{ n.title }}</dt><dd>{{ n.text }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="install">
+  <div class="wrap">
+    <h2 id="install">Install</h2>
+    <p class="band-lede">You need an RG DS+, a spare microSD card and a computer. Nothing on the device itself changes.</p>
     <ol class="steps">
-      <li><a href="{{ get_url(path='@/download.md') }}"><span class="step-n">1</span><strong>Download</strong><span>An image for the DS+, and its checksum.</span></a></li>
-      <li><a href="{{ get_url(path='@/manual/install.md') }}"><span class="step-n">2</span><strong>Write a card</strong><span>With balenaEtcher or dd. Your stock card stays as it is.</span></a></li>
-      <li><a href="{{ get_url(path='@/manual/games.md') }}"><span class="step-n">3</span><strong>Add your games</strong><span>Copy them into Roms/ and power on.</span></a></li>
+      {%- for s in x.steps %}
+      <li><a class="card" href="{{ get_url(path=s.link) }}"><strong>{{ s.title }}</strong><span>{{ s.text }}</span></a></li>
+      {%- endfor %}
     </ol>
-    <p class="small">Bring your own games, or dive into the free homebrew made for these systems.</p>
   </div>
 </section>
 
-<section class="story">
-  <div class="wrap story-inner">
-    <p class="kicker">How it was made</p>
-    {{ section.content | safe }}
+<section class="band last" aria-labelledby="open">
+  <div class="wrap">
+    <div class="dark-panel">
+      <div>
+        <h2 id="open">Open, from the bootloader up</h2>
+        <p>DSlot runs on <a href="{{ config.extra.nibos_site }}/">nibOS</a>, a Linux system made for the DS+, in place of the vendor's kernel. Every part, from the shelf and the emulators down to the hardware layer, is free software with its source on GitHub.</p>
+        <div class="made">{{ section.content | safe }}</div>
+        <p class="panel-links"><a href="{{ config.extra.repo }}">Source on GitHub →</a> <a href="{{ config.extra.nibos_site }}/">About nibOS →</a></p>
+      </div>
+      <dl class="spec">
+        {%- for l in x.stack %}
+        <div><dt>{{ l.part }}</dt><dd>{{ l.what }}</dd></div>
+        {%- endfor %}
+      </dl>
+    </div>
   </div>
 </section>
+
+</div>
 {% endblock %}

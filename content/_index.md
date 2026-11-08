@@ -3,103 +3,85 @@ title = "DSlot"
 template = "index.html"
 
 [extra]
-eyebrow = "A game system for the Anbernic RG DS+"
-headline = "Two screens. Five seconds. Your games."
-lede = "DSlot is a game shelf made for the clamshell, with an emulator for every system behind one menu. It comes on a card of its own: press power, and your carts are waiting over the slot."
-
-stats = [
-  { value = "0.65", unit = "s", label = "from reset to the kernel" },
-  { value = "1.5", unit = "s", label = "to a picture on both screens" },
-  { value = "≈5", unit = "s", label = "to the game shelf" },
-  { value = "23", unit = "", label = "systems, one menu" },
-]
-
-systems = [
-  { name = "Nintendo DS", colour = "#c9ccd3" },
-  { name = "Game Boy Advance", colour = "#6b5bd6" },
-  { name = "Game Boy", colour = "#8fae4b" },
-  { name = "Game Boy Color", colour = "#b0427a" },
-  { name = "SNES", colour = "#8a7fd1" },
-  { name = "NES", colour = "#c23b32" },
-  { name = "Famicom Disk System", colour = "#d9a441" },
-  { name = "Mega Drive", colour = "#3b4a6b" },
-  { name = "Mega-CD", colour = "#4a5a7b" },
-  { name = "32X", colour = "#b03a2e" },
-  { name = "Pico", colour = "#e8b730" },
-  { name = "Master System", colour = "#c0392b" },
-  { name = "SG-1000", colour = "#7f8c8d" },
-  { name = "Game Gear", colour = "#2c3e50" },
-  { name = "PC Engine", colour = "#e5e5e5" },
-  { name = "PC Engine CD", colour = "#e67e22" },
-  { name = "PlayStation", colour = "#9aa0a6" },
-  { name = "PSP", colour = "#2b2b2b" },
-  { name = "Atari Lynx", colour = "#d35400" },
-  { name = "Neo Geo Pocket", colour = "#1f6fb2" },
-  { name = "WonderSwan", colour = "#16a085" },
-  { name = "Game & Watch", colour = "#b8860b" },
-  { name = "Arcade", colour = "#c0392b" },
-  { name = "PortMaster ports", colour = "#f5c542" },
-]
-
+headline = "A replacement OS and game launcher for the RG DS+."
+lede = "DSlot runs from its own microSD card. Power on, and about five seconds later your games are on both screens, twenty-three systems behind one menu. The stock card stays as it is: swap it back any time."
 stack = [
-  { name = "DSlot and the emulators", note = "The shelf, DSperate, inkdot, nibcase, inktick" },
-  { name = "nibkit", note = "The SDK: both screens, buttons, touch, the shared menu" },
-  { name = "nibos-hw", note = "The hardware layer: one gamepad, sound that follows the jack, sleep, charging" },
-  { name = "Arch Linux ARM", note = "systemd, pacman, a full userland" },
-  { name = "Linux 7.3, mainline", note = "With Panfrost and Mesa: open graphics" },
-  { name = "U-Boot, mainline", note = "SPL in Falcon mode: the kernel 0.65 s after reset" },
+  { part = "Kernel", what = "Linux 7.3, mainline" },
+  { part = "Bootloader", what = "U-Boot, mainline" },
+  { part = "Graphics", what = "Panfrost and Mesa" },
+  { part = "Userland", what = "Arch Linux ARM" },
 ]
 
-[[extra.features]]
-kicker = "The shelf"
-title = "Push a cart into the slot"
-text = "Your games as carts over a card slot on the touch screen, their boxes, play time and ratings on the top one. Or a cover grid, or a list: flick it and it glides. A page for each system, a picker on Select, and a card for every console, with its history and cited facts."
-image = "grid.png"
-alt = "DSlot's cover grid on the touch screen, with the selected game's box and play time on the top screen."
-link = "@/manual/shelf.md"
-link_text = "Tour the shelf"
+shots = [
+  { src = "dslot-carts.webp", caption = "Carts over the slot", alt = "The shelf: Mole Patrol's box, publisher and play record on the top screen; its cartridge over a card slot on the touch screen, Lantern Tide and Paper Harbor either side." },
+  { src = "dslot-grid.webp", caption = "The cover grid", alt = "The cover grid: Mole Patrol's box on the top screen; six game covers in a grid on the touch screen, Mole Patrol highlighted." },
+  { src = "dslot-menu.webp", caption = "The menu", alt = "DSlot's menu over Lantern Tide: the Game, DS and System tabs, with Favourite, Rating and Delete saves." },
+]
+hero_render = { src = "rgds-plus.webp", width = 1440, height = 1444, alt = "An Anbernic RG DS+, open, running DSlot: Mole Patrol's box art on the top screen, its cartridge over the slot on the touch screen." }
 
-[[extra.features]]
-kicker = "One menu"
-title = "Every emulator, the same buttons"
-text = "Back opens the menu, Menu saves and takes you home, and the next start carries on where you left off. Six save slots with pictures, settings per game or per system, Wi-Fi and Bluetooth: the same menu in DSlot, DSperate, inkdot, nibcase and inktick."
-image = "menu.png"
-alt = "DSlot's menu on the touch screen: favourite, rating, view, sort, sounds, start at power-on, power off."
+
+[extra.shelf]
+title = "Made for two screens"
+text = "The top screen shows the game you're on: its box, how long you've played it, your rating. The touch screen holds the library, as cartridges over a card slot, a cover grid or a list. Flick through it, or press Select to change system."
+link = "@/manual/shelf.md"
+link_text = "The shelf, in the manual"
+
+[extra.menu]
+title = "One menu in every emulator"
+text = "Back opens the same menu whatever you're playing: six save slots with pictures, settings for the game or the whole system, Wi-Fi and Bluetooth. Menu saves and takes you home, and the next start carries on where you left off."
 link = "@/manual/controls.md"
 link_text = "Every control"
 
-[[extra.cards]]
-icon = "moon"
-title = "Sleeps like it should"
-text = "Close the lid: deep sleep, and Wi-Fi back about two seconds after you open it."
+# The systems, by maker. Twenty-three, plus PortMaster's ports.
+[[extra.systems]]
+maker = "Nintendo"
+names = ["DS", "Game Boy Advance", "Game Boy", "Game Boy Color", "SNES", "NES", "Famicom Disk System", "Game & Watch"]
+[[extra.systems]]
+maker = "Sega"
+names = ["Mega Drive", "Mega-CD", "32X", "Master System", "Game Gear", "SG-1000", "Pico"]
+[[extra.systems]]
+maker = "Sony"
+names = ["PlayStation", "PSP"]
+[[extra.systems]]
+maker = "NEC"
+names = ["PC Engine", "PC Engine CD"]
+[[extra.systems]]
+maker = "Others"
+names = ["Arcade (FinalBurn Neo)", "Neo Geo Pocket", "WonderSwan", "Atari Lynx", "PortMaster ports"]
 
-[[extra.cards]]
-icon = "bolt"
-title = "Charges asleep"
-text = "Plug in a switched-off DS+ and it charges dark, amber light on. Battery protect stops at 80%."
+[[extra.notes]]
+title = "Sleep"
+text = "Close the lid mid-game and the DS+ sleeps. Open it and carry on; Wi-Fi is back about two seconds later."
+[[extra.notes]]
+title = "Charging"
+text = "Charges while switched off, amber light on. Battery protect stops at about 80% to spare the cell."
+[[extra.notes]]
+title = "Updates"
+text = "Signed updates over Wi-Fi, installed while you play. If one fails to start, it rolls back by itself."
+[[extra.notes]]
+title = "Wi-Fi and Bluetooth"
+text = "Join networks and pair headphones or controllers from the menu. Sound follows the headphone jack."
+[[extra.notes]]
+title = "Your games card"
+text = "DSlot reads the stock Roms/ folders, so the games card you already have works in the second slot."
+[[extra.notes]]
+title = "A real Linux"
+text = "Leave the shelf for a console with a touch keyboard, or SSH in from your computer."
 
-[[extra.cards]]
-icon = "shield"
-title = "Updates itself"
-text = "Signed updates over Wi-Fi, installed while you play. If one ever fails to start, it rolls back by itself."
-
-[[extra.cards]]
-icon = "wave"
-title = "Bluetooth and Wi-Fi"
-text = "Join networks and pair headphones and controllers from the shelf's menu. Sound follows the headphones."
-
-[[extra.cards]]
-icon = "terminal"
-title = "Linux underneath"
-text = "DSlot is based on nibOS, a streamlined Arch Linux for the device. Leave the shelf for a console with a touch keyboard, or SSH in."
-
-[[extra.cards]]
-icon = "box"
-title = "PortMaster on tap"
-text = "Get PortMaster from the Apps page and install ports over Wi-Fi; they appear on their own shelf page."
+[[extra.steps]]
+title = "Download the image"
+text = "One file for the DS+, with its checksum."
+link = "@/download.md"
+[[extra.steps]]
+title = "Write it to a card"
+text = "With Raspberry Pi Imager or dd. 16 GB or larger."
+link = "@/manual/install.md"
+[[extra.steps]]
+title = "Add games, power on"
+text = "Card in TF1, games in Roms/, on it or on a card in TF2."
+link = "@/manual/games.md"
 
 +++
 
-DSlot, the emulators and nibOS were built with AI agents (Claude, in Claude Code), directed by
-one person and played on a real RG DS+ every step of the way. Want to join in, with or without
-AI? [Contributing](@/contributing.md) says how.
+Built with AI agents (Claude, in Claude Code), directed by one person and played on a real RG DS+
+at every step. [Contributing](@/contributing.md) says how to join in, with or without AI.
