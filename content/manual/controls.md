@@ -18,6 +18,10 @@ everywhere, in DSlot and in every emulator.
 | Volume up / down | The volume, in steps of 5%, on the speakers or the headphones, whichever is playing. |
 | **Menu** + Volume up / down | Both screens' brightness, in steps of 5%. Works in games too. |
 
+Each step shows the new level in a small panel at the bottom right of the top screen (a speaker
+or a sun, a bar and the percent), on the shelf and in every emulator; it fades a moment after
+the last press.
+
 Plugging in headphones moves the sound to them; unplugging moves it back to the speakers.
 
 ## On the shelf (DSlot)
@@ -100,17 +104,19 @@ game (Game Boy Color, Game Boy, Pocket, Light or plain grey), the LCD texture an
 
 ### Other systems (nibcase)
 
-SNES, NES, Mega Drive, Master System, Game Gear, PC Engine, Neo Geo Pocket, WonderSwan, Atari
-Lynx, PlayStation and Game & Watch play in nibcase.
+SNES, NES, Mega Drive, Mega-CD, 32X, Pico, Master System, Game Gear, PC Engine, Neo Geo Pocket,
+WonderSwan, Atari Lynx, PlayStation, PSP, Arcade and Game & Watch play in nibcase.
 
 | Press | Does |
 |---|---|
 | D-pad, face buttons, L, R, Select, Start | The console's own pad. The face buttons follow their printed letters; on the Mega Drive, they are laid out as its pad: Y, B and A are A, B and C, X, L and R are X, Y and Z, and Select is Mode. |
-| The stick | The D-pad (a setting), or a PlayStation DualShock's left stick. |
+| The stick | The D-pad (a setting), a PlayStation DualShock's left stick, or the PSP's analog stick. |
 | Menu + Select | Fast-forward while held. |
 
 On PlayStation games, the **Controller** setting picks Digital pad (the default) or DualShock;
-a game of several discs has a **Disc** row on the Play page to change discs. On Game & Watch
+a game of several discs has a **Disc** row on the Play page to change discs. On the PSP, the
+face buttons go by position (B is Cross, A Circle, Y Square, X Triangle), and the stick is the
+PSP's own; **Rendering Resolution** 2x draws it sharper, at a cost in heavy 3D games. On Game & Watch
 units, **Select** moves to the unit's next key (Game A, Game B, Time, …) and **Start** presses
 it; units that open like a book are shown across both screens. Every system's details:
 [nibcase's systems guide](https://github.com/abradburne/nibcase/blob/main/docs/systems.md).

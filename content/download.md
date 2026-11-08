@@ -12,7 +12,8 @@ description = "DSlot's card image for the Anbernic RG DS+, how to check it, the 
 
 ## DSlot {{ r.version }}
 
-The first beta, released {{ r.date }}: everything planned for 0.1.0 is in, and the betas from
+The second beta, released {{ r.date }}: the PSP, Arcade, Mega-CD, 32X and Pico, the volume
+and brightness on screen, and fixes. Everything planned for 0.1.0 is in, and the betas from
 here to 0.1.0 bring fixes. For the **Anbernic RG DS+** only. The image is a whole card: DSlot,
 its emulators and [nibOS]({{ nib }}/), the streamlined Arch Linux they are based on. Write it to a microSD card
 of 16 GB or more with Raspberry Pi Imager or `dd`, or with balenaEtcher once it is unpacked:
@@ -64,10 +65,10 @@ them; to write a card, use the `.img.xz`.
 
 ## What's in it
 
-- **DSlot 0.5.0**, the game shelf, and the emulators: DSperate (DS, GBA), inkdot (Game Boy,
-  Game Boy Color), nibcase with its emulator cores (SNES, NES, Famicom Disk System, Mega Drive,
-  Master System, SG-1000, Game Gear, PC Engine and PC Engine CD, PlayStation, Atari Lynx, Neo
-  Geo Pocket, WonderSwan, Game & Watch), inktick (Game & Watch, a preview), and PortMaster
+- **DSlot 0.6.0**, the game shelf, and the emulators: DSperate (DS, GBA), inkdot (Game Boy,
+  Game Boy Color), nibcase 0.3.0 with its emulator cores (SNES, NES, Famicom Disk System, Mega
+  Drive, Mega-CD, 32X, Pico, Master System, SG-1000, Game Gear, PC Engine and PC Engine CD,
+  PlayStation, PSP, Arcade, Atari Lynx, Neo Geo Pocket, WonderSwan, Game & Watch), inktick (Game & Watch, a preview), and PortMaster
   support (PortMaster itself downloads on first use).
 - **[nibOS]({{ nib }}/) {{ r.version }}**, the streamlined Arch Linux for the device that DSlot
   is based on.
@@ -75,23 +76,28 @@ them; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-alpha6:
+What changed since 0.1.0-beta1:
 
-- **RetroAchievements on seven more systems.** Game Boy Advance in DSperate, and SNES, NES, Mega
-  Drive, Game Gear, Atari Lynx and PlayStation in nibcase, earn achievements (Casual), joining
-  DS, Game Boy and Game Boy Color. Sign in once from DSlot's Achievements page and play.
-- **DSlot 0.5.0.** The menu's longer pages come in sections under the tabs, moved through with
-  L2 / R2 or a tap; Wi-Fi and Bluetooth share one **Network** tab. Carts flicked on the shelf
-  glide on and settle on a cart. **Earned achievements** lists everything you have unlocked,
-  the latest first.
-- **Choose when a sleeping device powers off:** DSlot's menu → System → Power → **Power off when
-  asleep**. With the lid closed, the DS+ powers off at that time and stays off.
-- **Deep sleep draws less:** 49 mA asleep, from 52 mA.
-- **Mega Drive buttons match the console's pad:** Y, B and A are A, B and C; X, L and R are X, Y
-  and Z; Select is Mode.
-- **Updated systems use their whole partition:** a DS+ updated from an alpha gets 1.3 GB back on
-  its first start of this release.
+- **The PSP**, in DSlot 0.6.0 and nibcase 0.3.0. A PlayStation Portable page, `Roms/PSP`
+  (`.iso`, `.cso`, `.chd`, or a download's `EBOOT.PBP` in a folder of its own), played by the
+  PPSSPP core, drawn on the GPU, the games shown as UMDs on the shelf. Two Panfrost fixes make
+  GPU-drawn games faster: a Ridge Racer 2 race went from 14.8 to about 10 ms a frame.
+- **Arcade, Mega-CD, 32X and Pico.** An Arcade page, `Roms/ARCADE`, played by FinalBurn Neo,
+  with a section for each board, and pages for PicoDrive's other systems. PicoDrive is now the
+  Mega Drive's default core (Sonic 5.5 ms a frame, from 9.7); BlastEm is a game's other choice.
+  FinalBurn Neo and PicoDrive are licensed for non-commercial use only. No Mega-CD, 32X or Pico
+  game has been played on the DS+ yet ([Known issues](@/manual/known-issues.md)).
+- **Volume and brightness show on screen**: a small panel at the bottom right of the top screen
+  shows the new level, on the shelf and in every emulator.
+- **Both screens lit when the shelf comes back**, even after a game that turned one off was
+  killed or crashed.
+- **The card image is named for what it is**: `dslot-<version>-rg-ds-plus.img.xz`, offered here.
+  The update files keep their names, so every DS+ already installed finds its updates as before.
+- **zip 9.4** in DSlot, nibcase and nibkit, for the zip crate's security advisories.
 
+[0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1)'s notes are on its
+release page: RetroAchievements on seven more systems, DSlot 0.5.0's menu sections, power off
+when asleep, deep sleep at 49 mA, and the Mega Drive's buttons as its pad.
 The alphas' notes are on their release pages (they were published as nibOS's):
 [0.1.0-alpha6](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha6),
 [0.1.0-alpha5](https://github.com/abradburne/nibos/releases/tag/v0.1.0-alpha5),
@@ -114,22 +120,23 @@ The image carries, on its NIBOS partition:
 - `licenses/`: the licence texts that no package installs.
 
 nibOS's own code is under the GNU GPL, version 3 or later; nibkit and the emulators written for
-nibOS are MIT or Apache-2.0 ([Licences](@/licences.md)). One emulator core, **Snes9x**, has a
-non-commercial licence: the DSlot image may not be sold, or included in anything sold.
+nibOS are MIT or Apache-2.0 ([Licences](@/licences.md)). Three emulator cores, **Snes9x**,
+**FinalBurn Neo** and **PicoDrive**, have non-commercial licences: the DSlot image may not be
+sold, or included in anything sold.
 
-**Source code.** The complete corresponding source for the GPL and LGPL software in these
+**Source code.** The complete corresponding source for the GPL and LGPL software in this
 image, and for at least three years after this release was last offered:
 
 | Part | Source |
 |---|---|
 | nibOS: kernel and U-Boot patches, device tree, hardware layer, tools | [abradburne/nibos](https://github.com/abradburne/nibos/tree/{{ r.tag }}) at `{{ r.tag }}` |
-| DSlot | [abradburne/DSlot](https://github.com/abradburne/DSlot/tree/v0.5.0) at `v0.5.0` |
-| DSperate | [abradburne/DSperate](https://github.com/abradburne/DSperate/tree/00f759d) at `00f759d` |
-| inkdot | [abradburne/inkdot](https://github.com/abradburne/inkdot/tree/1ecf49f) at `1ecf49f` |
-| nibcase | [abradburne/nibcase](https://github.com/abradburne/nibcase/tree/afcbf36) at `afcbf36` |
-| inktick | [abradburne/inktick](https://github.com/abradburne/inktick/tree/9ad1e00) at `9ad1e00` |
-| nibkit | [abradburne/nibkit](https://github.com/abradburne/nibkit), at the tags each project pins (DSlot: `v0.3.0`) |
-| Arch Linux ARM packages | The source packages of the GPL and LGPL packages in `packages.txt`, attached to the [release]({{ r.url }}) |
+| DSlot | [abradburne/DSlot](https://github.com/abradburne/DSlot/tree/d603d60) at `d603d60` (0.6.0) |
+| DSperate | [abradburne/DSperate](https://github.com/abradburne/DSperate/tree/e359292) at `e359292` |
+| inkdot | [abradburne/inkdot](https://github.com/abradburne/inkdot/tree/12d5c9b) at `12d5c9b` |
+| nibcase | [abradburne/nibcase](https://github.com/abradburne/nibcase/tree/fd417c2) at `fd417c2` (0.3.0) |
+| inktick | [abradburne/inktick](https://github.com/abradburne/inktick/tree/e8eeec9) at `e8eeec9` |
+| nibkit | [abradburne/nibkit](https://github.com/abradburne/nibkit), at the tag the projects pin, `v0.4.1` |
+| Arch Linux ARM packages, the libretro cores | Their source packages, attached to the [release]({{ r.url }}) as `nibos-{{ r.version }}-sources-*.tar.zst`, with `SOURCES.md` saying what is where |
 
 The kernel is mainline Linux at `0fcb05b` with the patches in nibOS's `kernel/`,
 `socs/rk3568/kernel/` and `boards/rg-ds-plus/kernel/`; U-Boot is v2026.10 with the patches in

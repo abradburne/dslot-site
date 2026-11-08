@@ -29,6 +29,10 @@ put in `APPS` on a card.
 
 DSlot remembers the page, and coming back from a game opens the page it was on.
 
+**Sections.** The Arcade page has a row of sections under its tab: All, then each board its
+games are on (Neo Geo, CPS-1, CPS-2, …; the most games first, Other last). **L2 / R2** or a tap
+steps through them; the one chosen stays with the page.
+
 ## The system picker
 
 Press **Select** for the system picker: a stack of blades, one for each page, each in its
@@ -96,8 +100,9 @@ one console:
 The carts, the grid and the lists scroll with momentum under a finger: flick, and touch to
 stop. Flicked carts settle on a cart.
 
-Carts are drawn for the DS, GBA, Game Boy, Game Boy Color, SNES, NES, Mega Drive, Game Gear and
-Atari Lynx; the other systems show boxes. With no artwork of your own, every cart gets a
+Carts are drawn for the DS, GBA, Game Boy, Game Boy Color, SNES, NES, Mega Drive, 32X, Game
+Gear and Atari Lynx, discs for the Mega-CD and UMDs for the PSP; the other systems show
+boxes. With no artwork of your own, every cart gets a
 sticker printed from what the game file itself carries (its title, icon and code), and every
 box is drawn from the same. To use your own:
 

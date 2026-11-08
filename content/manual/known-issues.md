@@ -24,6 +24,12 @@ page lists what's still to come.
 - **PlayStation**: most games play, but occasional frames take nearly a whole frame's time,
   which shows as a stutter in some games. Higher internal resolution is off for now.
 - **Famicom Disk System**: set up, and its BIOS check tested, but not yet played with a game.
+- **Mega-CD, 32X and Pico**: set up, but no game of theirs has been played on the DS+ yet, and
+  achievements through PicoDrive are unchecked.
+- **Arcade**: played with MAME's free sets so far. A set must match FinalBurn Neo's version of
+  it; one from another emulator's list may not start.
+- **PSP**: heavy 3D games (God of War) are over the frame's time even at 1x. Its
+  RetroAchievements sets show on the shelf, but earning one on the DS+ hasn't been seen yet.
 - **DS games at a higher 3D resolution** cost more: 4x is too slow for most games, and at 2x or
   3x the heaviest scenes can fall behind, when DSperate shows every other frame and then drops
   the 3D to 1x by itself until it catches up. They also warm the DS+ and drain the battery

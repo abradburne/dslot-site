@@ -2,7 +2,7 @@
 # The site's address, also in static/CNAME (README.md, "Publishing").
 base_url = "https://dslot.alanb.dev"
 title = "DSlot"
-description = "DSlot: a game system for the Anbernic RG DS+. A game shelf on both screens, eighteen systems, one menu, on a card of its own."
+description = "DSlot: a game system for the Anbernic RG DS+. A game shelf on both screens, twenty-three systems, one menu, on a card of its own."
 default_language = "en"
 
 compile_sass = false
@@ -44,12 +44,12 @@ nibos_site = "https://nibos.alanb.dev"
 # nibOS image is offered on the nibOS site.
 [extra.release]
 published = true
-version = "0.1.0-beta1"
-tag = "v0.1.0-beta1"
-date = "2026-10-29"
-commit = "c22f4cf"
-url = "https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1"
-download_base = "https://github.com/abradburne/nibos/releases/download/v0.1.0-beta1"
+version = "0.1.0-beta2"
+tag = "v0.1.0-beta2"
+date = "2026-11-08"
+commit = "b6a2ce3"
+url = "https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta2"
+download_base = "https://github.com/abradburne/nibos/releases/download/v0.1.0-beta2"
 key_id = "41B02B0D6ED49D26"
 public_key = "RWQmndRuDSuwQVWE+U7OduA6M/9ibhJbai63nHTWlvvpVrLZ2OuF3h6k"
 
@@ -57,6 +57,6 @@ public_key = "RWQmndRuDSuwQVWE+U7OduA6M/9ibhJbai63nHTWlvvpVrLZ2OuF3h6k"
 edition = "DSlot for the RG DS+"
 badge = "For playing"
 summary = "Boots to the DSlot game shelf on both screens, with every emulator. Write it to a card, add your games, play."
-file = "dslot-0.1.0-beta1-rg-ds-plus.img.xz"
-size = "264 MiB"
-sha256 = "4ecb810b96abd884e73991b63699ca0f29e13e268d6bfa62a4dd109dc685bca3"
+file = "dslot-0.1.0-beta2-rg-ds-plus.img.xz"
+size = "292 MiB"
+sha256 = "c11ae938e7a756bb713212f45be56b0936a761a6ba882957b52259fe21b9bde5"

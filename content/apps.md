@@ -60,7 +60,7 @@ one set of buttons and one place for saves, through **nibkit**.
   one of its platforms and downloads it on first use ([PortMaster](@/manual/portmaster.md)).
 - **The libretro cores** that nibcase plays are their authors' projects, each under its own
   licence: Snes9x, Nestopia UE, BlastEm, Gearsystem, Handy, Beetle PCE Fast, Beetle NeoPop,
-  Beetle Cygne, gw-libretro and PCSX ReARMed.
+  Beetle Cygne, gw-libretro, PCSX ReARMed, PPSSPP, FinalBurn Neo and PicoDrive.
 
 ## Writing your own
 

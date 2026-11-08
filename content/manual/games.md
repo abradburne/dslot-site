@@ -21,13 +21,18 @@ it; nothing on a card is ever renamed, moved or deleted.
 | SNES / Super Famicom | `Roms/SFC` | `.sfc`, `.smc`, `.zip` | nibcase (Snes9x) | None |
 | NES / Famicom | `Roms/FC` | `.nes`, `.unf`, `.unif`, `.zip` | nibcase (Nestopia UE) | None |
 | Famicom Disk System | `Roms/FDS` | `.fds` | nibcase (Nestopia UE) | `disksys.rom`, required |
-| Mega Drive / Genesis | `Roms/MD` | `.md`, `.gen`, `.bin`, `.smd`, `.zip` | nibcase (BlastEm) | None |
+| Mega Drive / Genesis | `Roms/MD` | `.md`, `.gen`, `.bin`, `.smd`, `.zip` | nibcase (PicoDrive; BlastEm the other choice) | None |
+| Mega-CD / Sega CD | `Roms/SEGACD` | `.chd`, `.cue` with its tracks, `.iso`, `.m3u` | nibcase (PicoDrive) | The discs' region's, required |
+| 32X | `Roms/32X` | `.32x` | nibcase (PicoDrive) | None |
+| Pico | `Roms/PICO` | `.md`, `.bin` | nibcase (PicoDrive) | None |
 | Master System | `Roms/SMS` | `.sms`, `.zip` | nibcase (Gearsystem) | None |
 | SG-1000 | `Roms/SG1000` | `.sg`, `.zip` | nibcase (Gearsystem) | None |
 | Game Gear | `Roms/GG` | `.gg`, `.zip` | nibcase (Gearsystem) | None |
 | PC Engine / TurboGrafx-16 | `Roms/PCE` | `.pce`, `.zip` | nibcase (Beetle PCE Fast) | None |
 | PC Engine CD | `Roms/PCECD` | `.cue` with its tracks, `.chd` | nibcase (Beetle PCE Fast) | `syscard3.pce`, required |
 | PlayStation | `Roms/PS` | `.chd`, `.cue` with its tracks, `.pbp`, `.m3u` | nibcase (PCSX ReARMed) | `scph5501.bin` and others, optional |
+| PSP | `Roms/PSP` | `.iso`, `.cso`, `.chd`, `.pbp`; a download as `<Game>/EBOOT.PBP` | nibcase (PPSSPP) | None |
+| Arcade | `Roms/ARCADE` | A set: `.zip`, `.7z` | nibcase (FinalBurn Neo) | A board's BIOS set beside the games (`neogeo.zip`) |
 | Atari Lynx | `Roms/LYNX` | `.lnx`, `.zip` | nibcase (Handy) | `lynxboot.img`, required |
 | Neo Geo Pocket (Color) | `Roms/NGP` | `.ngp`, `.ngc`, `.zip` | nibcase (Beetle NeoPop) | None |
 | WonderSwan (Color) | `Roms/WS` | `.ws`, `.wsc`, `.zip` | nibcase (Beetle Cygne) | None |
@@ -35,7 +40,14 @@ it; nothing on a card is ever renamed, moved or deleted.
 | Ports | `Roms/PORTS` | Installed by PortMaster | PortMaster | None |
 
 - **Zipped games**: a cartridge game may be a `.zip` holding one game. Disc games (PC Engine CD,
-  PlayStation) are never zipped.
+  Mega-CD, PlayStation, PSP) are never zipped. An arcade set is a zip, but of the board's
+  chips, named as FinalBurn Neo's list names it: the shelf shows its title, maker, year and
+  board, and doesn't show a BIOS set.
+- **The folder decides**: `.chd` and `.cue` belong to the PC Engine CD, Mega-CD and
+  PlayStation, and `.chd` and `.pbp` to the PSP too, by the folder they are in. A Pico cart is a
+  Mega Drive dump, known by its folder.
+- **PSP downloads**: a game in a folder of its own, `Roms/PSP/<Game>/EBOOT.PBP`, is one game
+  named after the folder; its box art and saves go by that name.
 - **Discs**: put a `.cue` with its `.bin` tracks beside it; DSlot lists the `.cue` and hides the
   tracks. A PlayStation game of several discs is an `.m3u`, a text file listing the discs, one
   file name a line:
@@ -62,11 +74,14 @@ which file is missing and where it looked.
 | `disksys.rom` | Famicom Disk System | Yes | `ca30b50f880eb660a320674ed365ef7a` |
 | `syscard3.pce` | PC Engine CD | Yes | `38179df8f4ac870017db21ebcbf53114` |
 | `lynxboot.img` | Atari Lynx | Yes | `fcd403db69f54290b51035d82f835e7b` |
+| `bios_CD_U.bin`, `bios_CD_E.bin`, `bios_CD_J.bin` | Mega-CD: the one for your discs' region (US, Europe, Japan) | Yes | |
 | `scph5501.bin` | PlayStation | No, recommended | `490f666e1afb15b7362b406ed1cea246` |
 | `scph1001.bin`, `scph7001.bin`, `scph101.bin`, `PSXONPSP660.bin` | PlayStation | No | [nibcase's list](https://github.com/abradburne/nibcase/blob/main/docs/systems.md#bios) |
 
 Without a PlayStation BIOS, the emulator's own replacement plays most games, and the game's menu
-says which file to add. The DS and GBA need no BIOS: DSperate has its own replacements built in.
+says which file to add. The DS and GBA need no BIOS: DSperate has its own replacements built in, and the PSP's
+emulator implements the PSP's firmware itself. An arcade board's BIOS set (`neogeo.zip` for the
+Neo Geo) goes in `Roms/ARCADE` beside its games, not in `BIOS/`.
 
 ## Saves
 

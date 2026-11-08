@@ -6,7 +6,7 @@ description = "Common questions about DSlot: devices, safety, games, the stock s
 ## What is DSlot?
 
 A game system for the **Anbernic RG DS+**: a game shelf on both screens, and emulators for
-eighteen systems behind one menu, with the same buttons, saves and settings everywhere. It comes
+twenty-three systems behind one menu, with the same buttons, saves and settings everywhere. It comes
 as a whole card that the DS+ starts from.
 
 ## And what is nibOS?

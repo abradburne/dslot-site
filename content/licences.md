@@ -30,11 +30,13 @@ anything, with the copyright notice kept.
 | Arch Linux ARM's packages | Each its own, listed in the image's `packages.txt` |
 | Roboto Condensed, the font in DSlot and the menus | SIL Open Font License 1.1 |
 | The system cards' console photos | Public domain, or CC BY 4.0, credited on each card |
-| The libretro cores nibcase plays | Each its own: GPL-2.0, GPL-3.0 or Zlib, except **Snes9x** (below) |
+| The libretro cores nibcase plays | Each its own: GPL-2.0, GPL-3.0 or Zlib, except **Snes9x**, **FinalBurn Neo** and **PicoDrive** (below) |
 | nibOS's PortMaster profile | MIT, PortMaster's own licence |
 
-**Snes9x**, the SNES core, is under its own **non-commercial** licence, so DSlot's card image
-may not be sold, or passed on as part of anything sold. nibOS's own image doesn't include it.
+**Snes9x** (the SNES), **FinalBurn Neo** (Arcade) and **PicoDrive** (the Mega Drive, Mega-CD,
+32X and Pico) are each under their own **non-commercial** licence, so DSlot's card image may not
+be sold, or passed on as part of anything sold. The image's `NOTICE` says so. nibOS's own image
+includes none of them.
 
 ## Firmware
 

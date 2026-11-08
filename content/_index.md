@@ -11,7 +11,7 @@ stats = [
   { value = "0.65", unit = "s", label = "from reset to the kernel" },
   { value = "1.5", unit = "s", label = "to a picture on both screens" },
   { value = "≈5", unit = "s", label = "to the game shelf" },
-  { value = "18", unit = "", label = "systems, one menu" },
+  { value = "23", unit = "", label = "systems, one menu" },
 ]
 
 systems = [
@@ -23,16 +23,21 @@ systems = [
   { name = "NES", colour = "#c23b32" },
   { name = "Famicom Disk System", colour = "#d9a441" },
   { name = "Mega Drive", colour = "#3b4a6b" },
+  { name = "Mega-CD", colour = "#4a5a7b" },
+  { name = "32X", colour = "#b03a2e" },
+  { name = "Pico", colour = "#e8b730" },
   { name = "Master System", colour = "#c0392b" },
   { name = "SG-1000", colour = "#7f8c8d" },
   { name = "Game Gear", colour = "#2c3e50" },
   { name = "PC Engine", colour = "#e5e5e5" },
   { name = "PC Engine CD", colour = "#e67e22" },
   { name = "PlayStation", colour = "#9aa0a6" },
+  { name = "PSP", colour = "#2b2b2b" },
   { name = "Atari Lynx", colour = "#d35400" },
   { name = "Neo Geo Pocket", colour = "#1f6fb2" },
   { name = "WonderSwan", colour = "#16a085" },
   { name = "Game & Watch", colour = "#b8860b" },
+  { name = "Arcade", colour = "#c0392b" },
   { name = "PortMaster ports", colour = "#f5c542" },
 ]
 
