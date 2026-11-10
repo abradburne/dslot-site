@@ -76,25 +76,20 @@ them; to write a card, use the `.img.xz`.
 
 ## Release notes
 
-What changed since 0.1.0-beta1:
+What changed since 0.1.0-beta2:
 
-- **The PSP**, in DSlot 0.6.0 and nibcase 0.3.0. A PlayStation Portable page, `Roms/PSP`
-  (`.iso`, `.cso`, `.chd`, or a download's `EBOOT.PBP` in a folder of its own), played by the
-  PPSSPP core, drawn on the GPU, the games shown as UMDs on the shelf. Two Panfrost fixes make
-  GPU-drawn games faster: a Ridge Racer 2 race went from 14.8 to about 10 ms a frame.
-- **Arcade, Mega-CD, 32X and Pico.** An Arcade page, `Roms/ARCADE`, played by FinalBurn Neo,
-  with a section for each board, and pages for PicoDrive's other systems. PicoDrive is now the
-  Mega Drive's default core (Sonic 5.5 ms a frame, from 9.7); BlastEm is a game's other choice.
-  FinalBurn Neo and PicoDrive are licensed for non-commercial use only. No Mega-CD, 32X or Pico
-  game has been played on the DS+ yet ([Known issues](@/manual/known-issues.md)).
-- **Volume and brightness show on screen**: a small panel at the bottom right of the top screen
-  shows the new level, on the shelf and in every emulator.
-- **Both screens lit when the shelf comes back**, even after a game that turned one off was
-  killed or crashed.
-- **The card image is named for what it is**: `dslot-<version>-rg-ds-plus.img.xz`, offered here.
-  The update files keep their names, so every DS+ already installed finds its updates as before.
-- **zip 9.4** in DSlot, nibcase and nibkit, for the zip crate's security advisories.
+- **Folders of games** (DSlot 0.7.1): folders in a console's folder show on the shelf; A opens
+  one, B comes back out. `_hidden` folders stay off the shelf, and a leading `_` isn't shown.
+- **Start a game fresh**: Select + A starts from boot; the resume point is set aside, not
+  deleted. B no longer starts a game.
+- **System → Help**: what's new in this release, and short topics on the controls, the menu,
+  saves, sleep and charging, Wi-Fi, adding games and the console.
+- **nibcase 0.3.2**: a BIOS named `SCPH-5501.BIN` is found; Clear resume state works for every
+  nibcase core; PlayStation playlists that name discs from the card's root play.
+- **The power key starts the DS+ after a power-off**, and asleep too long it really powers off.
 
+[0.1.0-beta2](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta2) brought the PSP,
+Arcade, Mega-CD, 32X and Pico, and the volume and brightness on screen.
 [0.1.0-beta1](https://github.com/abradburne/nibos/releases/tag/v0.1.0-beta1)'s notes are on its
 release page: RetroAchievements on seven more systems, DSlot 0.5.0's menu sections, power off
 when asleep, deep sleep at 49 mA, and the Mega Drive's buttons as its pad.
