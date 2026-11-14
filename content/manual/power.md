@@ -32,6 +32,7 @@ Charge from the DS+'s charging USB-C port (the other one is for USB devices).
 | Green LED | Running. |
 | Amber LED | The charger is plugged in (charging or full), awake or asleep. |
 | Dark screens, amber LED | Charging while "off" (below). |
+| Red LED blinking | The battery is low: 10% or under, blinking faster at 5% ([below](#the-battery)). |
 
 **Charging while off.** Plug a charger into a switched-off DS+ and it charges quietly, screens
 dark, amber LED lit. Press **power** (or open the lid) to start it; unplug it and it switches
@@ -45,6 +46,10 @@ holding for battery protect; or full.
 
 **Battery protect** stops charging at about 80% and starts again at 75%, so a DS+ left on its
 charger ages its battery more slowly. Turn it on in DSlot's menu: System → Battery protect.
+
+**Low battery.** At 10% and again at 5% a notice comes up on the shelf and the red LED blinks,
+faster when lower. At 2%, or if the cell stays at 3.45 V or under, the DS+ saves the game,
+quits it and powers off before the battery runs flat. Plugging in the charger clears it.
 
 Long, demanding sessions (3D DS games at higher resolution) warm the DS+ and drain the battery
 faster; charging while playing them warms it further.

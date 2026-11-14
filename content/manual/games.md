@@ -16,6 +16,7 @@ it; nothing on a card is ever renamed, moved or deleted.
 |---|---|---|---|---|
 | Nintendo DS | `Roms/NDS` | `.nds`, `.zip` | DSperate | None needed |
 | Game Boy Advance | `Roms/GBA` | `.gba`, `.zip` | DSperate | None needed |
+| Game Boy Advance, with a second screen | The same games in `Roms/GBA`, on the GBA DS page ([below](#gba-ds)) | `.gba`, `.zip` | GBA DS | None needed |
 | Game Boy | `Roms/GB` | `.gb`, `.zip` | inkdot | None |
 | Game Boy Color | `Roms/GBC` | `.gbc`, `.zip` | inkdot | None |
 | SNES / Super Famicom | `Roms/SFC` | `.sfc`, `.smc`, `.zip` | nibcase (Snes9x) | None |
@@ -82,6 +83,26 @@ Without a PlayStation BIOS, the emulator's own replacement plays most games, and
 says which file to add. The DS and GBA need no BIOS: DSperate has its own replacements built in, and the PSP's
 emulator implements the PSP's firmware itself. An arcade board's BIOS set (`neogeo.zip` for the
 Neo Geo) goes in `Roms/ARCADE` beside its games, not in `BIOS/`.
+
+## GBA DS
+
+[GBA DS](https://github.com/kyannon/gba-ds) gives some Game Boy Advance games a second screen:
+their map, race HUD or status screen on the other screen. Those games show on a **GBA DS** page
+after the GBA's, from the same files in `Roms/GBA`: 51 games as of GBA DS 1.5, with their
+regional releases. There is nothing to copy twice; a game is on both pages, and plays on the
+GBA page as before.
+
+In a GBA DS game, **Back** pauses it and opens nibOS's menu, and **Menu** saves where you are
+and quits. Its saves and resume point are kept apart from the GBA page's, in
+`Saves/GBADS/<game>/`.
+
+## Screen looks
+
+The DS and GBA (DSperate) can draw an LCD look over each pixel (grid, scanlines, soft, or light,
+normal or strong subpixels) and give GBA games the GBA's own colours; both are off unless
+chosen in the emulator's settings. The Game Boy and Game Boy Color (inkdot) have a **Screen
+texture** setting: like the model's own screen (the default), pixel grid, colour stripes, bold
+colour stripes, scanlines, soft pixels or none.
 
 ## Saves
 
